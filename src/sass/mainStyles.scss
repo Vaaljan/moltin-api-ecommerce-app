@@ -1,0 +1,20 @@
+
+
+$mint : #ca9893;
+$clay : #b3a193;
+$brown : #423d3a;
+$lightMint : #d9b9b5;
+$lightClay : #d4cbc4;
+$grey : #7d7d7d;
+$lightGrey : #b5b5b5;
+$veryLightGrey : #E2E2E2;
+$darkGrey: #585858;
+
+//import customised bootstrap file 
+@import 'partials/_fonts';
+@import 'vendor/bootstrap-custom';
+@import 'partials/_header';
+@import 'partials/_layout';
+@import 'partials/_mediaStyles';
+
+

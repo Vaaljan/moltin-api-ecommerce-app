@@ -1,0 +1,131 @@
+<h1>Checkout</h1>
+
+ <form novalidate class="simple-form">
+   <div class="col-md-6">
+     <table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr>
+            <td colspan="2">Customer Details</td>
+          </tr>
+          <tr>
+            <td width="20%">Name:</td>
+            <td width="80%"><input type="text" ng-model="user.first_name" /></td>
+          </tr>
+           <tr>
+            <td width="20%">Surname:</td>
+            <td width="80%"><input type="text" ng-model="user.last_name" /></td>
+          </tr>
+          <tr>
+            <td width="20%">Email:*</td>
+            <td width="80%"><input type="email" required ng-model="user.email" /></td>
+          </tr>
+           <tr>
+            <td width="20%">Cell Number</td>
+            <td width="80%"><input type="text" ng-model="user.cellNo" /></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-6">
+     <table cellspacing="0" cellpadding="0" border="0" width="100%">
+          <tr>
+            <td colspan="2">Address Details</td>
+          </tr>
+           <tr>
+            <td colspan="2"><input type="text" placeholder="Address Line 1" ng-model="user.address.Address1" /></td>
+          </tr>
+           <tr>
+            <td colspan="2"><input type="text" placeholder="Address Line 2" ng-model="user.address.Address2" /></td>
+          </tr>
+           <tr>
+            <td colspan="2"><input type="text" placeholder="Address Line 3" ng-model="user.address.Address3" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><input type="text" placeholder="City" ng-model="user.address.City" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><input type="text" placeholder="Area Code" ng-model="user.address.PostalCode" /></td>
+          </tr>
+
+          
+        </table>
+      </div>
+            <input type="button" class="btn" ng-click="reset()" value="Reset" />
+            <input type="submit" class="btn" ng-click="update(user)" value="Save" />
+
+  </form>
+
+
+<form class="form-horizontal" role="form" ng-submit="createOrder(data)">
+     <div class="row box">
+         <h3>Customer Information</h3>
+
+            
+     </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="your_order">
+            <h3>Your Order</h3>
+            <table class="table table-bordered table-responsive">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Qty</th>
+                  <th>Totals</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr class="subtotal">
+                  <td></td>
+                  <td><b>Cart Subtotal</b></td>
+                  <td>{{ cart.totals.formatted.without_tax }}</td>
+                </tr>
+                <tr class="subtotal">
+                  <td></td>
+                  <td><b>Order Total</b></td>
+                  <td>{{ cart.totals.formatted.with_tax }}</td>
+                </tr>
+              </tfoot>
+              <tbody>
+                <tr ng-repeat="(key,product) in cart.contents">
+                  <td><a href="#/product/{{ product.id }}">{{ product.title }}</a></td>
+                  <td>{{ product.quantity }}</td>
+                  <td>{{ product.totals.formatted.with_tax }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="row" style="margin-bottom: 20px" ng-if="options.shipping.methods.length">
+              <h3>Shipping</h3>
+              <div class="row box">
+                <div class="carrier" ng-repeat="carrier in options.shipping.methods">
+                  <label class="radio">
+                    <input type="radio" name="carrier" value="{{ carrier.slug }}" ng-model="data.shipping" checked="checked" />
+                    {{ carrier.name }}
+                  </label>
+                  <div class="carrier-{{ carrier.slug }}">
+                    {{ carrier.description }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h3>Payment</h3>
+        </div>
+        <div class="col-md-4" ng-repeat="gateway in options.gateways">
+          <div class="box padding">
+            <label class="radio">
+              <input type="radio" name="gateway" value="{{ gateway.slug }}" ng-model="data.gateway" checked="checked" />
+             {{ gateway.slug }}
+             <br/>
+             
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary pull-right" type="submit" style="margin: 20px 0">Proceed to Payment</button>
+    </form>

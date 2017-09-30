@@ -1,0 +1,112 @@
+.logo{
+	text-align:center;
+	margin:0 auto 20px auto;
+	padding-bottom:15px;
+	border-bottom:1px solid $lightClay;
+}
+
+
+
+/*----------------Navigation CSS---------------
+-------------------------------------------*/
+#mainNavigation{
+	margin-top: 15px;
+	background-color:#fff;
+}
+.navbar-default .navbar-nav > li.active:after{
+				content:"";
+				display:block;
+				width: 30px;
+				position: absolute;
+				top:0;
+				left: 0;
+				right:0;
+				margin-left: auto;
+				margin-right: auto;
+				 border-bottom:2px solid $mint;
+}
+.navbar{
+	
+}
+.navbar-default{
+margin:0 auto;
+  	border: 0px solid transparent !important;
+  	z-index: 1!important;
+}
+.navbar-collapse ,#bs-example-navbar-collapse-1{
+	z-index: 1!important;
+	width: 100%;
+}
+.navbar-default .navbar-nav > li > a{
+	color:#000;
+	font-size: 14px;
+	font-weight: normal;
+	text-align: center;
+	padding-top:12px;
+	z-index: 1!important;
+	min-width: 120px;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+	  background-color: #fff;
+	  color:#808080;
+	  z-index: 1!important;
+
+}
+
+.navbar-default .navbar-nav > li.active {
+  	  background-color: #fff;
+  	border-bottom:2px solid $mint;
+}
+
+.navbar-default .navbar-nav > li.active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
+	  background-color: #fff;
+	 color:#000;
+
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+	padding-left: 0;
+}
+
+/*Navbar Mobile Toggle*/
+.navbar-default .navbar-toggle {
+  background-color: $clay;
+  color:#fff;
+  font-size: 12px;
+  margin:0;
+  padding-bottom: 2px;
+  text-align: center;
+}
+.navbar-default .navbar-toggle:hover{
+	background-color: $lightClay;
+	color:$brown;
+}
+.navbar-default .navbar-toggle:hover > .icon-bar {
+background-color: $brown;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff; 
+ 	color:#fff;
+   margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+
+}
+.navbar-toggle{
+
+
+}
+.navbar-default .navbar-toggle{
+	border-bottom-color: transparent;
+}
+
+/*----------------Navigation END CSS---------------
+-------------------------------------------*/
+
+.socailMedia{
+	
+
+}

@@ -1,0 +1,34 @@
+
+
+/*----------------fonts etc------------------
+----------------------------------------------------*/
+
+@font-face {
+  font-family: LibreBaskerville-Bold;
+  src: url('LibreBaskerville-Bold.ttf') format("truetype");
+
+}
+@font-face {
+  font-family: LibreBaskerville-Regular;
+  src: url('LibreBaskerville-Regular.ttf') format("truetype");
+
+}
+@font-face {
+  font-family: LibreBaskerville-Italic;
+  src: url('LibreBaskerville-Italic.ttf') format("truetype");
+
+}
+
+
+h1{
+	color:$clay;
+	font-size:20px;
+}
+h2{
+	color:$clay;
+	font-size:18px;
+}
+h3{
+	color:$clay;
+	font-size:16px;
+}

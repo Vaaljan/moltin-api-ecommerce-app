@@ -1,0 +1,26 @@
+<view-cart-banner class="viewCartBanner"></view-cart-banner>
+<div class="productInfoContainer">
+	<div class="col-md-4 col-sm-6">
+	  		<div class="imageContainer" ng-repeat="image in product.images"  ng-hide="!productInfoCtrl.dataService.isCurrentIndex($index)">
+		<div class="imageWrapper" ng-style="{'background-image' : 'url(' + image.url.http + ')'}"
+		ng-swipe-left="productInfoCtrl.dataService.showNext()" ng-swipe-right="productInfoCtrl.dataService.showPrevious()"></div>
+	</div>
+
+	<nav>
+		<div class="thumbnailWrapper">
+			<div ng-repeat="image in product.images | limitTo: 4" class="thumbnail" ng-class="{'active':productInfoCtrl.dataService.isCurrentIndex($index)}" ng-click="productInfoCtrl.dataService.setCurrentIndex($index);" ng-style="{'background-image' : 'url(' + image.url.http + ')'}"></div>
+		</div>
+	</nav>
+
+	</div>
+	<div class="col-md-8 col-sm-6">
+	<p>{{product.title}}</p>
+	<p>{{product.description}}</p>
+	<p>{{product.price.data.raw.without_tax | currency:"R "}}</p>
+
+			<button ng-if="!addStatus" ng-click="addCart()" class="addToCart">Add to Cart</button>
+    	<button ng-if="addStatus" class="addToCart">{{addStatus}}</button>
+
+	</div>
+
+</div>

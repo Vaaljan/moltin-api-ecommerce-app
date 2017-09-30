@@ -1,0 +1,31 @@
+<div class="viewCartContainer">
+<h3 ng-if="cart.contents.length != 0">Your cart currently contains the following items:</h3>
+<h3 ng-if="cart.contents.length == 0">No Items in your cart.</h3>
+
+		<div class="cartItems" ng-repeat="(id, product) in cart.contents">
+				<div class="row" style="margin-top:10px;">
+							<div class="col-md-4">
+								<img src="{{product.images[0].url.http}}" width="100%">
+							</div>
+							<div class="col-md-7">
+					      <p>{{product.name}}</p>
+					      <p>{{product.quantity}}</p>
+					      <p>{{product.pricing.raw.without_tax | currency:"R "}}</p>
+							</div>
+							<div class="col-md-1">
+								<button class="closeBtn" ng-click="removeItem(id)">X</button>
+							</div>
+					</div>
+			</div>
+
+			<div class="row">
+			
+			<a href="#/checkout">
+				<button class="checkoutBtn" ng-show="cart.contents.length != 0">
+					 Checkout
+				</button>
+			</a>
+				
+			</div>
+
+</div>

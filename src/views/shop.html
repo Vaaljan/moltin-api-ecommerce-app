@@ -1,0 +1,25 @@
+    <div class="shopContainer">
+
+<div class="row">
+<div class="col-md-12" ng-repeat="(key,cat) in shopCtrl.category">
+		<h1>{{cat[0].category}}</h1>
+
+  		<div class="row" >
+					<div class="col-md-4" ng-repeat="item in shopCtrl.products" ng-if="item.category.value == cat[0].category">
+				<a ng-href="#/products/{{item.id}}">
+							<div class="shopItem" ng-click="shopCtrl.dataService.getProductData(item.id)">
+									<div class="shopImage"><img src="{{item.images[0].url.http}}" width="100%" /></div>
+									<div class="shopdesc">
+											<p>{{item.price.data.raw.without_tax | currency :"R "}}</p>
+											<p><strong>Product Description</strong><br/>{{item.description}}</p>
+									</div>
+							</div>
+						</a>
+					</div>
+  		</div>
+
+</div>
+
+</div>
+
+  </div>
